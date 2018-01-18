@@ -1,0 +1,12 @@
+#
+ server {
+ listen      81;
+
+ access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log ;
+    #Prevent any access other than to the path specified below
+        location / {
+                   proxy_pass   http://tom1:80;
+}
+}
+                               

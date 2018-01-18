@@ -1,0 +1,14 @@
+Step1:  cd /root/test_ops 
+build nginx image: docker build -t nginx:1 nginx/.
+Step2: build tomcat: docker build -t tomcat:7 tomcat/.
+step3: pull mysql: docker pull mysql:5.5
+
+Start mysql:
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
+
+start tomcat:
+docker run -idt -p 8080:8080 --name tomcat --link mysql1:mysql tomcat:7
+
+start nginx:
+docker run -idt -p 80:80 --name nginx --link tom:tom1 -v /root/test_ops/live:/etc/nginx/sites-enabled/ nginx:1
+
