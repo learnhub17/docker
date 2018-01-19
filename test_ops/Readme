@@ -21,7 +21,7 @@ GRANT ALL PRIVILEGES ON * . * TO 'root'@'localhost';
 FLUSH PRIVILEGES;
 
 3. start tomcat:
-docker run -idt -p 8080:8080 --name tomcat --link mysql1:mysql tomcat:7
+docker run -idt -p 8080:8080 --name tomcat --link mysql:mysql tomcat:7
 
 4. start nginx:
 docker run -idt -p 80:80 --name nginx --link tom:tom1 -v /root/test_ops/live:/etc/nginx/sites-enabled/ nginx:1
